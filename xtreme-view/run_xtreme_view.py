@@ -121,10 +121,13 @@ class XtremeViewRunner():
         #############################################
         view_synthesizer.list_vcams = []
 
+        print('Determining which views to generate...')
         if seq_name in self.virtual_cams:
+            print('...using views from the paper.')
             view_offsets = self.virtual_cams[seq_name]['view_offsets']
             src_indx = self.virtual_cams[seq_name]['src_indx']
         else:
+            print('...using default view.')
             view_offsets = self.virtual_cams['default']['view_offsets']
             src_indx = self.virtual_cams['default']['src_indx']
 

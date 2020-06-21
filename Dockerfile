@@ -48,6 +48,14 @@ RUN pip install pydensecrf \
     pyquaternion \
     imageio
 
-COPY xtreme-view xtreme-view
-WORKDIR xtreme-view
+# Orazio's edits to inputrc...
+RUN echo '"\e[A": history-search-backward' >> /etc/inputrc
+RUN echo '"\e[B": history-search-forward' >> /etc/inputrc
+RUN echo '"\e[3;5~": shell-kill-word' >> /etc/inputrc
+RUN echo '"\C-H": shell-backward-kill-word' >> /etc/inputrc
+
+# Colors!
+ENV TERM xterm-color
+ENV CLICOLOR 1
+ENV LSCOLORS ExFxCxDxBxegedabagacad
 
